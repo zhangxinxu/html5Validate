@@ -7,6 +7,8 @@ jquery-html5Validate.js
 * 支持type="email", type="number", type="tel", type="url", type="zipcode", 以及多type, 如type="email|tel". 支持 step, min, max, required, pattern, multiple
 * 有4个自定义扩展属性 data-key, data-target, data-min, data-max
 
+测试页面：<a href="https://rawgit.com/zhangxinxu/html5Validate/master/test/index.html">test/index.html</a>
+
 更多信息请参考这里： http://www.zhangxinxu.com/wordpress/?p=2857  
 
 优势？
