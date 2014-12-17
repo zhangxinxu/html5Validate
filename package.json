@@ -1,0 +1,33 @@
+{
+  "name": "html5Validate",
+  "version": "1.4",
+  "description": "基于HTML5表单规范进行验证的jQuery插件",
+  "main": "src/jquery-html5Validate.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zhangxinxu/html5Validate.git"
+  },
+  "keywords": [
+    "html5Validate",
+    "jquery-html5Validate.js",
+	"jQuery",
+	"jQuery插件"
+  ],
+  "author": "zhangxinxu",
+  "license": [{
+	 "type": "MIT",
+     "url": "https://github.com/zhangxinxu/html5Validate/blob/master/LICENSE-MIT" 
+  }],
+  "bugs": {
+    "url": "https://github.com/zhangxinxu/html5Validate/issues",
+	"email" : "zhangxinxu@zhangxinxu.com"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

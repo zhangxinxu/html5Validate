@@ -1,0 +1,22 @@
+body { background-color: #eee; font-size: 14px; font-family: 'microsoft yahei'; margin: 0; }
+input, select, textarea { padding: 5px; }
+.zxx_out_box{width:70%; min-width:700px; border-left:1px solid white; border-right:1px solid white; margin:0 auto; }
+.zxx_in_box{min-height:550px; _height:550px; border-left:1px solid #ccc; border-right:1px solid #ccc; background:white; padding:1em 2.5em 0;}
+.zxx_header{padding:10px 20px 5px; border-bottom:1px solid #ccc; overflow:hidden; zoom:1;}
+.zxx_author_time{float:right; margin-top:34px; color:#787878; font-family:"Courier New", Courier, monospace;}
+.zxx_title{font-size:1.6em; text-align:center; margin:20px 0;}
+.zxx_main_con{min-height:580px; _height:580px; padding:0 20px 20px;}
+.zxx_footer{padding-bottom:25px; padding-top: 25px; font-size: 12px; text-align:center; color: #454455;}
+.zxx_test_list{padding:1em; font-size:1.1em; border-bottom:1px dashed #ccc; line-height:1.3; overflow:hidden; zoom:1;}
+.zxx_code{display:block; padding:10px; margin:5px 0; background:#eee; border:1px dashed #ccc; clear:both; zoom:1;}
+.zxx_code xmp,.zxx_code pre{margin:0; color:#00F; font-size:12px; white-space:pre-wrap; word-wrap:break-word;}
+.zxx_btn{display:inline-block;}
+.zxx_btn:hover,.zxx_btn a:hover{text-decoration:none; color:#34538b;}
+
+input, textarea{font-size:100%;}
+.bar_bg{display:inline-block; width:200px; height:16px; background-color:#e0e0e0;}
+.bar_btn{width:20px; height:20px; line-height:20px; margin-top:-3px; margin-left:-10px; border:1px solid #ccc; background-color:#fff; text-align:center; font-size:10px; position:absolute; cursor:pointer;}
+.bar_btn:hover{background-color:#f5f5f5;}
+.bar_btn:after{display:block; content:attr(data-content);}
+.submit{width:100px; height:32px;}
+

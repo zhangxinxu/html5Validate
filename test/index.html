@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="description" content="jQuery html5Validate表单验证插件测试" />
+<meta name="description" content="张鑫旭web前端学习之jQuery html5Validate表单验证插件测试实例页面" />
+<meta name="keywords" content="插件, jQuery, demo, HTML5, 表单验证" />
+<meta name="author" content="张鑫旭,zhangxixnu" />
+<title>jQuery html5Validate表单验证插件测试 » 张鑫旭-鑫空间-鑫生活</title>
+<link rel="stylesheet" href="test.css">
+<link rel="stylesheet" href="quick_layout-min.css">
+<style>
+.error { box-shadow: 0 0 10px #ff4136; }
+</style>
+</head>
+<body>
+<div class="zxx_out_box">
+    <div class="zxx_in_box">
+        <div class="zxx_header">
+            <a href="http://www.zhangxinxu.com/">
+                <img class="l" src="index_logo.gif" />
+            </a>
+            <span class="zxx_author_time">by zhangxinxu 2012-12-05 9:52</span>
+        </div>
+        <h1 class="zxx_title">jQuery html5Validate表单验证插件测试</h1>
+        <div class="tr">
+        	<a href="https://github.com/zhangxinxu/html5validate/archive/master.zip" class="btn btn_blue">源文件下载.zip</a>
+        </div>
+        <div class="zxx_main_con">
+			<form id="testForm" action="" method="post">
+                <div class="mb15">
+                	邮箱：<input type="email " name="email" data-type="required" multiple />
+                    <span class="f9 g6 ml10">无label无required, type=email+空格, multiple</span>
+                    <span class="ml20 g9">方便复制：a@a.com</span>
+                </div>
+                <div class="mb15">
+                	邮箱：<input type="email" required />
+                    <span class="f9 g6 ml10">无label有required</span>
+                </div>
+                <div class="mb15"><label for="email1">邮箱：</label><input type="email" id="email1" required /><span class="f9 g6 ml10">有label有required</span></div>
+                <div class="mb15">
+                	<label for="mobile">手机：</label><input type="tel|xxxx" id="mobile" required />
+                    <span class="f9 g6 ml10">有label有required &emsp; type="tel|xxxx" 管道符功能测试(xxxx不存在, 忽略)</span>
+                </div>
+                <div class="mb15">
+                	<label for="emailTel">邮箱/手机：</label><input type="tel|email" id="emailTel" placeholder="请输入手机或邮箱" required />
+                    <span class="f9 g6 ml10">有label有required  &emsp; type="tel|email" 管道符功能测试</span>
+                </div>
+                <div class="mb15">
+                	<label for="zipcode">邮编：</label><input type="zipcode" id="zipcode" /><span class="f9 g6 ml10">有label, 非HTML5规范，国产 type="zipcode"</span>
+                </div>
+                <div class="mb15"><label for="url">网站地址：</label><input type="url" id="url" /><span class="f9 g6 ml10">有label, type="url"</span></div>
+                <div class="mb15">口味：<select required>
+                    <option value="">请选择</option>
+                    <option value="1">很差</option>
+                    <option value="2">差</option>
+                    <option value="3">一般</option>
+                    <option value="4">好</option>
+                    <option value="5">很好</option>
+                </select><span class="f9 g6 ml10">select required 无label</span></div>
+                <div class="mb15">环境评分 - 隐藏域：<span id="hiddenRemind" class="bar_bg"><i class="bar_btn" data-rel="envirScore"></i></span>
+                    <label for="envirScore" class="dn">环境评分</label>
+                    <input type="range" id="envirScore" class="dn" required data-key="拖选" data-target="hiddenRemind" />
+                    <span class="f9 g6 ml10">有隐藏label，有required 提示关键字自定义(data-key), 有提示的目标元素(data-target)</span>
+                </div>
+                <div class="mb15">服务评分（隐藏input）：<span class="bar_bg"><i class="bar_btn" data-rel="serverScore"></i></span>
+                    <label for="serverScore" class="dn">服务评分</label>
+                    <input type="hidden" id="serverScore" required data-key="拖选" />
+                    <span class="f9 g6 ml10">有隐藏label，有required 提示关键字自定义, 无提示的目标元素</span>
+                </div>
+                <div class="mb15">
+                	<label for="number">现金券个数：</label><input type="number" class="w50 tc" id="number" max="100" min="1" value="1" required multiple />
+                    <span class="f9 g6 ml10">label, required max/min限制 → 1~100, multiple(实际无效)</span>
+                </div>
+                <div class="mb15">
+                	<label for="price">价钱：</label><input type="number" class="w50 tc" id="price" step="0.1" value="140" min="0" required />
+                    <span class="f9 g6 ml10">label, required max/min限制 → 最多保留1位小数点(.00除外)</span>
+                </div>
+                <div class="mb15">
+                	<label for="dinnerDate">就餐日期：</label><input type="date" id="dinnerDate" pattern="^\d{4}[\.|\-|\/][0|1]?\d{1}[\.|\-|\/][0-3]?\d{1}$" />
+                    <span class="f9 g6 ml10">自定义pattern正则， pattern="^\d{4}[\.|\-|\/][0|1]?\d{1}[\.|\-|\/][0-3]?\d{1}$"</span>
+                </div>
+                <div class="mb15">
+                    <p><input type="radio" id="dinnerType1" class="vn" name="dinnerType" required /><label for="dinnerType1">只订大厅</label></p>
+                    <p><input type="radio" id="dinnerType2" class="vn" name="dinnerType" required /><label for="dinnerType2">只订包房</label></p>
+                    <p><input type="radio" id="dinnerType3" class="vn" name="dinnerType" required /><label for="dinnerType3">优先订大厅</label></p>
+                    <p><input type="radio" id="dinnerType4" class="vn" name="dinnerType" required /><label for="dinnerType4">优先订包房</label></p>
+                </div>
+                <div class="mb15">
+                    <p>性别：<input type="radio" id="male" class="vn" name="sexy" required /><label for="male">先生</label>
+                    <input type="radio" id="female" class="vn" name="sexy" required /><label for="female">女士</label></p>
+                </div>
+                <div class="mb15">
+                    <p>喜欢：<input type="radio" id="love" class="vn" name="any" required /><label for="love">是</label><span class="f9 g6 ml10">唯一</span></p>
+                </div>
+                <div class="mb15">
+                    <p>特色服务：</p>
+                    <p><input type="checkbox" id="speServer1" class="vn" name="speServer" required /><label for="speServer1">宝宝椅</label></p>
+                    <p><input type="checkbox" id="speServer2" class="vn" name="speServer" required /><label for="speServer2">鲜花派送</label></p>
+                    <p><input type="checkbox" id="speServer3" class="vn" name="speServer" /><label for="speServer3">生日蛋糕</label><span class="f9 g6 ml10">除了这个其他都必选</span></p>
+                    <p><input type="checkbox" id="speServer4" class="vn" name="speServer" required /><label for="speServer4">停车位</label></p>
+                </div>
+               	<div class="mb15">
+                    <p><span class="red mr5 fs">*</span>发表评论：</p>
+                    <p class="mt5 mb5">标题：<input class="w320 " maxlength="20" /><span class="f9 g6 ml20">最多20字符 maxlength限制</span></p>
+                     <label for="comment" class="db"><span class="dn">评论</span>内容：</label><textarea id="comment" class="w460" rows="5" data-max="100" data-min="5" required></textarea>
+                    <p class="mt5 f9 g6">5-100字的限制, required, label标签中部分提示文字隐藏</p>
+                </div>
+                <input type="submit" class="submit" value="提交测试" disabled />
+            </form>        
+        </div>
+        <div class="zxx_footer">
+            Copyright &copy; <a href="http://www.zhangxinxu.com/">张鑫旭-鑫空间-鑫生活</a>
+            |
+            <a href="http://www.zhangxinxu.com/wordpress/?p=2857">该篇相关文章</a>
+            |
+            <a href="https://github.com/zhangxinxu/html5validate/archive/master.zip">源文件打包下载</a>
+        </div>
+    </div>
+</div>
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="../src/jquery-html5Validate.js"></script>
+<script>
+/*$.testRemind.css = {
+	borderColor: "#a0b3d6",
+	backgroundColor: "#f0f3f9"	
+};*/
+$("#testForm").html5Validate(function() {
+	alert("全部通过！");
+	//this.submit();	
+}, {
+	// novalidate: false,
+	// labelDrive: false
+});
+// 托选
+var mousedownleft, btnmarginleft, flagFollow = false;
+$(".bar_btn").bind({
+	"mousedown": function(e) {
+		mousedownleft = e.pageX;
+		btnmarginleft = parseInt($(this).css("marginLeft")) || 0;
+		flagFollow = $(this);
+	}	
+});
+$(document).bind({
+	"mousemove": function(e) {
+		var nowmouseleft = e.pageX, finalposleft = nowmouseleft - mousedownleft + btnmarginleft;
+		if (flagFollow) {
+			if (finalposleft > 190) {
+				finalposleft = 190;
+			} else if (finalposleft < -10) {
+				finalposleft = -10;
+			}
+			var score = Math.round((finalposleft + 10) / 40);
+			flagFollow.css("marginLeft", finalposleft).attr("data-content", score);
+			$("#" + flagFollow.attr("data-rel")).val(score);
+		}
+	},
+	"mouseup": function() {
+		flagFollow = false;
+	}
+});
+</script>
+</body>
+</html>
