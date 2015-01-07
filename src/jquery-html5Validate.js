@@ -188,7 +188,7 @@
 						$(ele).testRemind("值必须大于或等于" + attrMin);	
 					} else if (attrMax && value > attrMax) {
 						$(ele).testRemind("值必须小于或等于" + attrMax);	
-					} else if (attrStep && !/^\d+$/.test(Math.abs((value - attrMin || 0)) / attrStep)) {
+					} else if (attrStep && !/^\d+(\.0+)?$/.test((Math.abs((value - attrMin || 0)) / attrStep).toFixed(10))) {
 						$(ele).testRemind("值无效");	
 					} else {
 						return false;	
