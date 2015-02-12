@@ -518,17 +518,11 @@
 				validate: function() { return true; }
 			};
 			var params = $.extend({}, defaults, options || {});
-			var elements = $(this).find(":input");
+			
 			if ($.html5Validate.isSupport) {
 				if (params.novalidate) {
 					$(this).attr("novalidate", "novalidate");
-				} else {
-					elements.each(function() {
-						var type = this.getAttribute("type") + "", typeReplaced = type.replace(/\W+$/, "");
-						if (type != typeReplaced) {
-							try { this.type = typeReplaced; } catch(e) {}
-						}
-					});	
+				} else {					
 					params.hasTypeNormally = true;
 				}
 			}
@@ -542,10 +536,19 @@
 				});
 			}
 			
-			$(this).bind("submit", function() {
+			$(this).bind("submit", function(event) {
+				var elements = $(this).find(":input");
+				//  例如type="email|"此时后面|需要去除
+				elements.each(function() {
+					var type = this.getAttribute("type") + "", typeReplaced = type.replace(/\W+$/, "");
+					if (type != typeReplaced) {
+						try { this.type = typeReplaced; } catch(e) {}
+					}
+				});	
 				if ($.html5Validate.isAllpass(elements, params) && params.validate() && $.isFunction(callback)) {
 					callback.call(this);	
 				}
+				event.preventDefault();
 				return false;	
 			});
 			
